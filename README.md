@@ -7,6 +7,10 @@ npx create-react-app typescript-audio-recorder --template typescript
 
 ```
 
+Audio Recorder based on:
+- github: https://github.com/codiini/react-audio-video-recorder
+- article: https://blog.logrocket.com/how-to-create-video-audio-recorder-react/
+
 ## Available Scripts
 
 In the project directory, you can run:
