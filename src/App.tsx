@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import VideoRecorder from "../src/VideoRecorder";
+import AudioRecorder from "../src/AudioRecorder";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	let [recordOption, setRecordOption] = useState("video");
+
+	const toggleRecordOption = (type: any) => {
+		return () => {
+			setRecordOption(type);
+		};
+	};
+
+	return (
+		<div>
+			<h1>TypeScript React Media Recorder</h1>
+			<div className="button-flex">
+				<button onClick={toggleRecordOption("video")}>Record Video</button>
+				<button onClick={toggleRecordOption("audio")}>Record Audio</button>
+			</div>
+			<div>
+				{recordOption === "video" ? <VideoRecorder /> : <AudioRecorder />}
+			</div>
+		</div>
+	);
+};
 
 export default App;
